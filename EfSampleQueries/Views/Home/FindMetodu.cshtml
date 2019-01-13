@@ -1,0 +1,60 @@
+﻿@model EfSampleQueries.VeritabaniModelleri.Urun
+
+@{
+    ViewBag.Title = "FindMetodu";
+}
+
+<h2>Find Metodu</h2>
+<p>
+    var sonuc = db.Urun.Find(2);
+</p>
+<div>
+    <h4>Urun</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UrunIsmi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunIsmi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrunAciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunAciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YayindaMi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YayindaMi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fiyat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fiyat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Marka)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Marka)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

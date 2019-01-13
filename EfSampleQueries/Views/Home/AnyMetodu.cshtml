@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "AnyMetodu";
+}
+
+<h2>Any Metodu</h2>
+
+<p>
+    Any metodu, bir koleksiyonda belirtilen koşula uygun kayıt varsa geriye true, yoksa false değerini döndürmektetedir. Örnek olarak aşağıdaki objeyi kullanalım.
+</p>
+<p>
+    Sorgu => db.Urun.Any(u => u.YayindaMi == false);
+</p>
+<p>
+    Sonuç => @TempData["AnySonucu"]
+</p>
+<p>
+    Çünkü bir tane kayıt false idi.
+</p>
+
+

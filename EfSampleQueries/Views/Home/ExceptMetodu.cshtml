@@ -1,0 +1,34 @@
+﻿@model IEnumerable<int>
+
+@{
+    ViewBag.Title = "ExceptMetodu";
+}
+
+<h2>Except Metodu</h2>
+
+<p>
+    Bu metodu bu örnek üzerinden anlatacağım.<br /><br />
+
+    int[] onaKadarSayilar = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };<br />
+    int[] tekSayilar = { 1, 3, 5, 7, 9 };<br /><br />
+
+    Except metodu ile onaKadarSayilar içerisinde geçen tekSayilar elemanları dışlanacak ve geriye yeni bir koleksiyon döndürelecektir.
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            Geriye kalanlar
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item)
+            </td>
+        </tr>
+    }
+
+</table>

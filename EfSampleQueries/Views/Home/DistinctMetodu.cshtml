@@ -1,0 +1,27 @@
+﻿@model IEnumerable<string>
+@{
+    ViewBag.Title = "DistinctMetodu";
+}
+
+<h2>Distinct Metodu</h2>
+<p>
+    Ürün markalarında bulunan kayıtlardan birer örnek alır.
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            Markalar
+        </th>       
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item)
+            </td>           
+        </tr>
+    }
+
+</table>

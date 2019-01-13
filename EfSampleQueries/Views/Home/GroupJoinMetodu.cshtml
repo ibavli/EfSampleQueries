@@ -1,0 +1,55 @@
+﻿@model IEnumerable<EfSampleQueries.Models.GroupByModel>
+
+@{
+    ViewBag.Title = "GroupJoinMetodu";
+}
+
+<h2>GroupJoin Metodu</h2>
+<p>
+    <h3>SQL Sorgusu</h3>
+    select<br />
+    k.KategoriIsmi, sum(u.Miktar) as "Ürün Sayısı"<br />
+    from<br />
+    Kategori as k<br />
+    left join<br />
+    Urun as u<br />
+    on<br />
+    k.id = u.KategoriId<br />
+    group by k.KategoriIsmi<br />
+</p>
+<p>
+    <h3>Linq sorgusu olarak;</h3>
+    var GorupJoinSonuc = kategoriler.GroupJoin(urunler,<br />
+    kat => kat.id,<br />
+    urun => urun.KategoriId,<br />
+    (_kat, _urun) => new GroupByModel<br />
+    {<br />
+    KategoriAdi = _kat.KategoriIsmi,<br />
+    ToplamStok = _urun.Sum(x => x.Miktar)<br />
+    }); <br />
+
+    Bu GroupJoin'dan dönecek şekilde bir model tanımladık ve o modele atadık.
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.KategoriAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToplamStok)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KategoriAdi)
+            </td>
+            <td>
+                @item.ToplamStok.ToString()
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "AllMetodu";
+}
+
+<h2>All Metodu</h2>
+
+<p>
+    All metodu, belirtilen koşulu koleksiyonda bulunan tüm elemanların sağlaması gerekmektedir. Yani All metodu ile koşul belirttiğimiz zaman, belirtilen koşul koleksiyon içerisinde bulunan tüm kayıtlar tarafından mutlaka sağlanması gerekmektedir.
+</p>
+<p>
+    Sorgu => var sonuc = db.Urun.All(u => u.YayindaMi == false);
+</p>
+<p>
+    Sonuç => @TempData["AllSonucu"]
+</p>
+<p>
+    Çünkü bir tane kayıt false idi.
+</p>
+

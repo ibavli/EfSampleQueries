@@ -1,0 +1,52 @@
+﻿@model IEnumerable<EfSampleQueries.Models.GroupByModel>
+
+@{
+    ViewBag.Title = "GroupByMetodu";
+}
+
+<h2>Group By Metodu</h2>
+<p>
+    <h3>SQL Kodu olarak; </h3>
+    select<br />
+    k.KategoriIsmi, sum(u.Miktar) as "Ürün Sayısı"<br />
+    from<br />
+    Kategori as k<br />
+    join<br />
+    Urun as u<br />
+    on<br />
+    k.id = u.KategoriId<br />
+    group by k.KategoriIsmi<br />
+</p>
+<p>
+    <h3>Linq sorgusu olarak;</h3>
+    var HangiKategorideKacUrunVar = db.Urun.GroupBy(u => u.Kategori.KategoriIsmi).Select(g => new GroupByModel<br />
+    {<br />
+    KategoriAdi = g.Key,<br />
+    ToplamStok = g.Sum(u => u.Miktar)<br />
+    }).ToList();<br /><br />
+
+    Bu groupby'dan dönecek şekilde bir model tanımladık ve o modele atadık.
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.KategoriAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToplamStok)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.KategoriAdi)
+        </td>
+        <td>
+            @item.ToplamStok.ToString()
+        </td>
+    </tr>
+}
+
+</table>
