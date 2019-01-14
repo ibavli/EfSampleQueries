@@ -133,6 +133,7 @@
     <Compile Include="Manager\DatabaseContext.cs" />
     <Compile Include="Models\GroupByModel.cs" />
     <Compile Include="Models\OfTypeModel.cs" />
+    <Compile Include="Models\Uye.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VeritabaniModelleri\Kategori.cs" />
     <Compile Include="VeritabaniModelleri\Musteri.cs" />
@@ -155,6 +156,9 @@
     <Content Include="Views\Home\SelectManyMetodu.cshtml" />
     <Content Include="Views\Home\SkipMetodu.cshtml" />
     <Content Include="Views\Home\SqlQueryMetod.cshtml" />
+    <Content Include="Views\Home\SqlQueryMetodParametreIle.cshtml" />
+    <Content Include="Views\Home\SqlQueryMetodCustomModel.cshtml" />
+    <Content Include="Views\Home\ThenByMetodu.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

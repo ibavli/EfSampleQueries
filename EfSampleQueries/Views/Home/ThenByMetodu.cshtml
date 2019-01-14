@@ -1,0 +1,33 @@
+﻿@model IEnumerable<EfSampleQueries.Models.Uye>
+
+@{
+    ViewBag.Title = "ThenByMetodu";
+}
+
+<h2>ThenByMetodu</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.isim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.yas)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.isim)
+        </td>
+        <td>
+            @item.yas.ToString()
+        </td>
+    </tr>
+}
+
+</table>

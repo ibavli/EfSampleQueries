@@ -1,15 +1,16 @@
 ﻿@model IEnumerable<EfSampleQueries.VeritabaniModelleri.Urun>
 
 @{
-    ViewBag.Title = "SqlQueryMetod";
+    ViewBag.Title = "SqlQueryMetodParametreIle";
 }
 
-<h2>SqlQuery Metod</h2>
+<h2>SqlQueryMetodParametreIle</h2>
+
+<hr />
 <p>
-    <b>var sorguSonucu = db.Urun.SqlQuery("Select * from Urun").ToList();</b>
+    <b>var sorguSonucu = db.Urun.SqlQuery("select * from Urun where Marka = @@marka and KategoriId = @@katid", new SqlParameter("@@marka", "Apple"), new SqlParameter("@@katid","2")).ToList();</b>
 </p>
 <hr />
-
 <table class="table">
     <tr>
         <th>
@@ -45,8 +46,7 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Marka)
-        </td>
-        
+        </td>      
     </tr>
 }
 

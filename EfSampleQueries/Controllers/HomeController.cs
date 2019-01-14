@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -194,6 +195,41 @@ namespace EfSampleQueries.Controllers
             var sorguSonucu = db.Urun.SqlQuery("Select * from Urun").ToList();
 
             return View(sorguSonucu);
+        }
+
+        public ActionResult SqlQueryMetodParametreIle()
+        {
+            var sorguSonucu = db.Urun.SqlQuery("select * from Urun where Marka = @marka and KategoriId = @katid", new SqlParameter("@marka", "Apple"), new SqlParameter("@katid","2")).ToList();
+            
+            return View(sorguSonucu);
+        }
+
+        public ActionResult SqlQueryMetodCustomModel()
+        {
+            //Tablodan dönün isimlerin modeldeki ile aynı olmasına dikkat edilmeli.
+            var sorguSonucu = db.Database.SqlQuery<GroupByModel>("select k.KategoriIsmi as 'KategoriAdi', sum(u.Miktar) as 'ToplamStok' from Kategori as k join Urun as u on k.id = u.KategoriId group by k.KategoriIsmi").ToList<GroupByModel>();
+            return View(sorguSonucu);
+        }
+
+
+        
+        public ActionResult ThenByMetodu()
+        {
+            IList<Uye> uyeListesi = new List<Uye>() {
+                 new Uye() { isim = "ali", yas = 18 } ,
+                 new Uye() { isim = "ali",  yas = 15 } ,
+                 new Uye() { isim = "ahmet",  yas = 25 } ,
+                 new Uye() { isim = "atılay" , yas = 20 } ,
+                 new Uye() { isim = "oktay" , yas = 19 },
+                 new Uye() { isim = "ali" , yas = 10 },
+                 new Uye() { isim = "adnan" , yas = 18 }
+            };
+
+            //var _uyeListesi = uyeListesi.OrderBy(i => i.isim).ToList(); //Sadece isme göre sıralama
+            //var _uyeListesi = uyeListesi.OrderBy(i => i.isim).OrderBy(x => x.yas).ToList(); //HATALI ÇIKTI
+            var _uyeListesi = uyeListesi.OrderBy(i => i.isim).ThenBy(y => y.yas).ToList();//İsimden sonra yaşlarıda sıralama
+
+            return View(_uyeListesi);
         }
     }
 }
