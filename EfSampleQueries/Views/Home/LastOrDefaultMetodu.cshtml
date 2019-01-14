@@ -1,0 +1,60 @@
+﻿@model EfSampleQueries.VeritabaniModelleri.Urun
+
+@{
+    ViewBag.Title = "LastOrDefault";
+}
+
+<h2>Last Or Default</h2>
+<p>
+    Son ürünü getirir.
+</p>
+<div>
+    <h4>Urun</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UrunIsmi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunIsmi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrunAciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunAciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YayindaMi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YayindaMi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fiyat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fiyat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Marka)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Marka)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

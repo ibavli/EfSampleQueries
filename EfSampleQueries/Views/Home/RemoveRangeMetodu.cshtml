@@ -1,0 +1,31 @@
+﻿@model IEnumerable<int>
+
+@{
+    ViewBag.Title = "RemoveRangeMetodu";
+}
+
+<h2>Remove Range Metodu</h2>
+<p>
+            liste.Add(1);<br />
+            liste.Add(2);<br />
+            liste.Add(3);<br />
+            liste.Add(4);<br />
+            liste.Add(5);<br />
+            liste.Add(6);<br /><br />
+
+            liste.RemoveRange(1, 3);<br /><br />
+    Sonuç olarak;
+</p>
+
+<table class="table">
+    <tr>
+        <th></th>      
+    </tr>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.ToString()
+        </td> 
+    </tr>
+}
+</table>

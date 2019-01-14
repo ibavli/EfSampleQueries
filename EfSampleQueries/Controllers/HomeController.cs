@@ -1,7 +1,9 @@
 ﻿using EfSampleQueries.Manager;
 using EfSampleQueries.Models;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -20,7 +22,7 @@ namespace EfSampleQueries.Controllers
             var siparisUrunleri = db.SiparisUrunleri.ToList();
             return View();
         }
-        //AsNoTracking, AsQueryable
+        //AsNoTracking, AsQueryable, Include, Join
         public ActionResult AllMetodu()
         {
             var sonuc = db.Urun.All(u => u.YayindaMi == false);
@@ -107,8 +109,91 @@ namespace EfSampleQueries.Controllers
                     KategoriAdi = _kat.KategoriIsmi,
                     ToplamStok = _urun.Sum(x => x.Miktar)
                 });
-
+            
             return View(GorupJoinSonuc);
+        }
+
+        public ActionResult LastOrDefaultMetodu()
+        {
+            var sonurun = db.Urun.ToList().LastOrDefault();
+            return View(sonurun);
+        }
+
+
+        public ActionResult RemoveRangeMetodu()
+        {
+            List<int> liste = new List<int>();
+            liste.Add(1);
+            liste.Add(2);
+            liste.Add(3);
+            liste.Add(4);
+            liste.Add(5);
+            liste.Add(6);
+
+            liste.RemoveRange(1, 3);
+
+            foreach (int i in liste)
+            {
+                var x = i;
+            }
+
+            return View(liste);
+        }
+
+
+        public ActionResult OfTypeMetodu()
+        {
+            IList liste = new ArrayList();
+            liste.Add(0);
+            liste.Add("Bir");
+            liste.Add("İki");
+            liste.Add(3);
+           
+            var stringList = from L in liste.OfType<string>() select L;
+
+            var intList = from L in liste.OfType<int>() select L;
+
+            OfTypeModel ofTypeModel = new OfTypeModel();
+
+            ofTypeModel.OrjinalListe = liste;
+            ofTypeModel.StringListe = stringList;
+            ofTypeModel.IntListe = intList;
+
+
+            return View(ofTypeModel);
+        }
+
+        public ActionResult SelectMetodu()
+        {
+            var kategoriler = db.Kategori.ToList();
+
+            var kategoriIsimleri = db.Kategori.Select(a => a.KategoriIsmi).ToList();
+            return View(kategoriIsimleri);
+        }
+
+
+       
+        public ActionResult SelectManyMetodu()
+        {
+            var kategoriSelectMany = db.Kategori.SelectMany(x => x.Urunler).ToList();
+            var kategoriSelect = db.Kategori.Select(x => x.Urunler).ToList();
+            //Aradaki fark debug yapılarak incelenirse daha iyi olur.
+            
+            return View(kategoriSelectMany);
+        }
+
+        public ActionResult SkipMetodu()
+        {
+            List<int> liste = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            var yeniListe = liste.Skip(4);
+            return View(yeniListe);
+        }
+
+        public ActionResult SqlQueryMetod()
+        {
+            var sorguSonucu = db.Urun.SqlQuery("Select * from Urun").ToList();
+
+            return View(sorguSonucu);
         }
     }
 }

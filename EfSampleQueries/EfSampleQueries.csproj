@@ -104,6 +104,11 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
     <Content Include="Views\Home\AllMetodu.cshtml" />
@@ -116,6 +121,8 @@
     <Content Include="Views\Home\FindMetodu.cshtml" />
     <Content Include="Views\Home\GroupByMetodu.cshtml" />
     <Content Include="Views\Home\GroupJoinMetodu.cshtml" />
+    <Content Include="Views\Home\LastOrDefaultMetodu.cshtml" />
+    <Content Include="Views\Home\RemoveRangeMetodu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -125,6 +132,7 @@
     </Compile>
     <Compile Include="Manager\DatabaseContext.cs" />
     <Compile Include="Models\GroupByModel.cs" />
+    <Compile Include="Models\OfTypeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VeritabaniModelleri\Kategori.cs" />
     <Compile Include="VeritabaniModelleri\Musteri.cs" />
@@ -142,6 +150,11 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Home\OfTypeMetodu.cshtml" />
+    <Content Include="Views\Home\SelectMetodu.cshtml" />
+    <Content Include="Views\Home\SelectManyMetodu.cshtml" />
+    <Content Include="Views\Home\SkipMetodu.cshtml" />
+    <Content Include="Views\Home\SqlQueryMetod.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -17,7 +17,7 @@ namespace EfSampleQueries.VeritabaniModelleri
         public bool YayindaMi { get; set; }
         public decimal Fiyat { get; set; }
         public string Marka { get; set; }
-        public int KategoriId { get; set; }
+        public int? KategoriId { get; set; }
         public virtual Kategori Kategori { get; set; }
         public int Miktar { get; set; }
         //public int SiparisUrunleriId { get; set; }

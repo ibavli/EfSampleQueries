@@ -1,0 +1,41 @@
+﻿@model EfSampleQueries.Models.OfTypeModel
+@{
+    ViewBag.Title = "OfTypeMetodu";
+}
+
+<h2>OfType Metodu</h2>
+<p>
+    IList türünden bir değişkene atama yaptık. Daha sonra ise, OfType ile ilgili değişkenlere atama yaptık.
+</p>
+<h3>Orjinal Liste</h3>
+<p>
+    @foreach (var item in Model.OrjinalListe)
+    {
+    <li>
+        @item
+    </li>
+       
+    }
+</p>
+<hr />
+<h3>Int Liste</h3>
+<p>
+    @foreach (var item in Model.IntListe)
+    {
+    <li>
+        @item.ToString()
+    </li>
+        
+    }
+</p>
+<hr />
+<h3>String Liste</h3>
+<p>
+    @foreach (var item in Model.StringListe)
+    {
+    <li>
+        @item
+    </li>
+        
+    }
+</p>

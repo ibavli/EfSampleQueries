@@ -1,0 +1,31 @@
+﻿@model IEnumerable<string>
+
+@{
+    ViewBag.Title = "SelectMetodu";
+}
+
+<h2>Select Metodu</h2>
+
+<p>
+    var kategoriler = db.Kategori.ToList();<br /><br />
+
+    var kategoriIsimleri = db.Kategori.Select(a => a.KategoriIsmi).ToList();<br />
+</p>
+<p>
+    Select metodu kategoriler tablosundan sadece kategori isimlerini aldık.
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Select sonucu kategori isimleri
+        </th>       
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item
+        </td>      
+    </tr>
+}
+</table>

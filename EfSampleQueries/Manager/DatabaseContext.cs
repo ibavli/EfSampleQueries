@@ -31,10 +31,11 @@ namespace EfSampleQueries.Manager
 
             Database.SetInitializer(new VeritabaniOlusurkenTablolaraBaslangicKayitlariEkleme());
 
+            //ZORUNLU DEMİŞTİK AMA NULLABLE YAPTIK DAHA SONRA BU HALE SOKTUK.
+            //modelBuilder.Entity<Urun>().HasRequired<Kategori>(u => u.Kategori).WithMany(k => k.Urunler).HasForeignKey(u => u.KategoriId).WillCascadeOnDelete();
+            modelBuilder.Entity<Urun>().HasOptional<Kategori>(u => u.Kategori).WithMany(k => k.Urunler).HasForeignKey(u => u.KategoriId).WillCascadeOnDelete();
 
-            modelBuilder.Entity<Urun>().HasRequired<Kategori>(u => u.Kategori).WithMany(k => k.Urunler).HasForeignKey(u => u.KategoriId).WillCascadeOnDelete();
             modelBuilder.Entity<SiparisUrunleri>().HasRequired<Siparis>(su => su.Siparis).WithMany(s => s.SiparisUrunleri).HasForeignKey(su => su.SiparisId).WillCascadeOnDelete();
-            //modelBuilder.Entity<Urun>().HasOptional(u => u.SiparisUrunleri).WithRequired(su => su.Urun);
             modelBuilder.Entity<SiparisUrunleri>().HasRequired<Urun>(su => su.Urun).WithMany(s => s.SiparisUrunleri).HasForeignKey(su => su.SiparisId).WillCascadeOnDelete();
             modelBuilder.Entity<Siparis>().HasRequired<Musteri>(s => s.Musteri).WithMany(m => m.Siparisleri).HasForeignKey(s => s.MusteriId).WillCascadeOnDelete();
         }
@@ -174,10 +175,22 @@ namespace EfSampleQueries.Manager
                 Miktar = 55
             };
 
+            Urun urun9 = new Urun()
+            {
+                id = 9,
+                Fiyat = 1250,
+                Marka = "Nokia",
+                UrunAciklama = "Nokia 3310 telefon açıklama",
+                UrunIsmi = "Nokia 3310",
+                YayindaMi = false,
+                Miktar = 17
+            };
+
             context.Urun.Add(urun5);
             context.Urun.Add(urun6);
             context.Urun.Add(urun7);
             context.Urun.Add(urun8);
+            context.Urun.Add(urun9);
             context.SaveChanges();
 
             Musteri musteri1 = new Musteri()
