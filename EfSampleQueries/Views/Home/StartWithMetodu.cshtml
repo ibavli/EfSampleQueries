@@ -1,0 +1,49 @@
+﻿@model IEnumerable<EfSampleQueries.VeritabaniModelleri.Urun>
+
+@{
+    ViewBag.Title = "StartWithMetodu";
+}
+
+<h2>StartWith Metodu</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UrunIsmi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UrunAciklama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YayindaMi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fiyat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Marka)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UrunIsmi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UrunAciklama)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YayindaMi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fiyat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Marka)
+        </td>  
+    </tr>
+}
+
+</table>

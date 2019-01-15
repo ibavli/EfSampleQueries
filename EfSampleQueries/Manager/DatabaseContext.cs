@@ -28,6 +28,22 @@ namespace EfSampleQueries.Manager
             modelBuilder.Entity<Siparis>().HasKey(s => s.id);
             modelBuilder.Entity<SiparisUrunleri>().HasKey(s => s.id);
 
+            //Kolon tipini değiştirmek, müdahale etmek istenirse
+            //modelBuilder.Entity<Urun>().Property(u => u.Fiyat).HasColumnType("money");
+
+
+            //Zorunlu kolon, max 50 karakter, ya da boş geçilebilir 
+            //modelBuilder.Entity<Urun>().Property(u => u.UrunIsmi).IsRequired().HasMaxLength(50);
+            //modelBuilder.Entity<Urun>().Property(u => u.UrunIsmi).IsOptional();
+
+            //Veritabanında oluşmasın ama modelimde olsun istersem
+            modelBuilder.Entity<Musteri>().Ignore(m => m.AdveSoyad);
+
+            //Property ismini değiştirme
+            //modelBuilder.Entity<Musteri>().Property(m => m.Adi).HasColumnName("MusteriAdi");
+
+            //Tablo ismini değiştirme
+            //modelBuilder.Entity<Musteri>().ToTable("Musterilerimiz");
 
             Database.SetInitializer(new VeritabaniOlusurkenTablolaraBaslangicKayitlariEkleme());
 
@@ -200,7 +216,7 @@ namespace EfSampleQueries.Manager
                 Soyadi = "Veli",
                 Sehir = "İzmir",
                 Ulke = "Türkiye",
-                Yas = 20
+                DogumTarihi = DateTime.Now.AddYears(-18)
             };
             Musteri musteri2 = new Musteri()
             {
@@ -209,7 +225,7 @@ namespace EfSampleQueries.Manager
                 Soyadi = "Hüseyin",
                 Sehir = "İzmir",
                 Ulke = "Türkiye",
-                Yas = 22
+                DogumTarihi = DateTime.Now.AddYears(-22)
             };
             Musteri musteri3 = new Musteri()
             {
@@ -218,7 +234,7 @@ namespace EfSampleQueries.Manager
                 Soyadi = "Fatma",
                 Sehir = "İstanbul",
                 Ulke = "Türkiye",
-                Yas = 34
+                DogumTarihi = DateTime.Now.AddYears(-34)
             };
             Musteri musteri4 = new Musteri()
             {
@@ -227,7 +243,7 @@ namespace EfSampleQueries.Manager
                 Soyadi = "Fadime",
                 Sehir = "Antalya",
                 Ulke = "Türkiye",
-                Yas = 27
+                DogumTarihi = DateTime.Now.AddYears(-27)
             };
             context.Musteri.Add(musteri1);
             context.Musteri.Add(musteri2);

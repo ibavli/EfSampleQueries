@@ -1,0 +1,45 @@
+﻿@model IEnumerable<EfSampleQueries.Models.UyeModel>
+
+@{
+    ViewBag.Title = "SqlFunctionKullanma";
+}
+
+<h2>SqlFunction Kullanma</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.isim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.soyisim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dogumTarihi)
+        </th>
+        <th>
+            Yaş
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.isim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.soyisim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dogumTarihi)
+        </td>
+        <td>
+            @item.yas.ToString()
+        </td>
+    </tr>
+}
+
+</table>

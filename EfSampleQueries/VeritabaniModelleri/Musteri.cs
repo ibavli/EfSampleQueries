@@ -16,7 +16,9 @@ namespace EfSampleQueries.VeritabaniModelleri
         public string Soyadi { get; set; }
         public string Sehir { get; set; }
         public string Ulke { get; set; }
-        public int Yas { get; set; }
+        public DateTime DogumTarihi { get; set; }
+
+        public string AdveSoyad { get; set; }
 
         public ICollection<Siparis> Siparisleri { get; set; }
     }

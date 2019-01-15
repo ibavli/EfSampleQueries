@@ -134,6 +134,7 @@
     <Compile Include="Models\GroupByModel.cs" />
     <Compile Include="Models\OfTypeModel.cs" />
     <Compile Include="Models\Uye.cs" />
+    <Compile Include="Models\UyeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VeritabaniModelleri\Kategori.cs" />
     <Compile Include="VeritabaniModelleri\Musteri.cs" />
@@ -159,6 +160,12 @@
     <Content Include="Views\Home\SqlQueryMetodParametreIle.cshtml" />
     <Content Include="Views\Home\SqlQueryMetodCustomModel.cshtml" />
     <Content Include="Views\Home\ThenByMetodu.cshtml" />
+    <Content Include="Views\Home\AvarageMetodu.cshtml" />
+    <Content Include="Views\Home\StartWithMetodu.cshtml" />
+    <Content Include="Views\Home\EndsWithMetodu.cshtml" />
+    <Content Include="Views\Home\SelectMetodu2.cshtml" />
+    <Content Include="Views\Home\SqlFunctionKullanma.cshtml" />
+    <Content Include="Views\Home\KayitGuncellemePerformansli.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

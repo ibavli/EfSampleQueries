@@ -1,0 +1,31 @@
+﻿@model IEnumerable<EfSampleQueries.Models.GroupByModel>
+
+@{
+    ViewBag.Title = "SelectMetodu2";
+}
+
+<h2>SelectMetodu2</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.KategoriAdi)
+        </th>
+        <th>Toplam Miktar</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.KategoriAdi)
+        </td>
+        <td>
+            @item.ToplamStok.ToString()
+        </td>
+    </tr>
+}
+
+</table>

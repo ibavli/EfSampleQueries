@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "KayitGuncellemePerformansli";
+}
+
+<h2>Kayit Guncelleme Performansli</h2>
+<hr />
+<p>
+    var ali = db.Musteri.Where(x => x.id == 1).FirstOrDefault();<br /><br />
+    ali.Adi = "Yeni Ali";<br /><br />
+    db.Entry(db.Musteri.Find(ali.id)).CurrentValues.SetValues(ali);
+</p>
+
